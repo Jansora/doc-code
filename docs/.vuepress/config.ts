@@ -2,7 +2,7 @@
 import {defineUserConfig} from 'vuepress'
 import type {MixThemeConfig} from 'vuepress-theme-mix/lib/node'
 
-export default defineUserConfig<MixThemeConfig>({
+export default defineUserConfig({
   lang: 'zh-CN',
   title: 'Doc Demo',
   description: 'Products maintained by Doc Demo',
@@ -25,7 +25,7 @@ export default defineUserConfig<MixThemeConfig>({
 
     themePlugins: {
       // shiki: false,
-      git: true,
+      git: false,
 
     },
     navbar: [
