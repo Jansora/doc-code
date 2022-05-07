@@ -3,8 +3,8 @@ import {defineUserConfig} from 'vuepress'
 
 export default defineUserConfig({
   lang: 'zh-CN',
-  title: 'Doc Demo',
-  description: 'Products maintained by Doc Demo',
+  title: '程序人生',
+  description: '学如逆水行舟, 不进则退',
   // Theme Config
   theme: 'vuepress-theme-mix',
   plugins: [
@@ -21,7 +21,9 @@ export default defineUserConfig({
   themeConfig: {
     // logo: '/images/logo.png',
     title: 'Doc Demo',
-
+    head: [
+      ['link', { rel: 'shortcut icon', type: "image/x-icon", href: `https://cdn.jansora.com/img/linux-shell.png` }]
+    ],
     themePlugins: {
       // shiki: false,
       git: false,
