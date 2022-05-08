@@ -7,6 +7,10 @@ export default defineUserConfig({
   lang: 'zh-CN',
   title: '程序人生',
   description: '学如逆水行舟, 不进则退',
+  head: [
+    ['link', { rel: 'shortcut icon', type: "image/x-icon", href: `https://cdn.jansora.com/img/linux-shell.png` }]
+  ],
+
   // Theme Config
   theme: mixTheme({
     themePlugins: {
@@ -14,9 +18,6 @@ export default defineUserConfig({
     },
     // logo: '/images/logo.png',
     title: '程序人生',
-    head: [
-      ['link', { rel: 'shortcut icon', type: "image/x-icon", href: `https://cdn.jansora.com/img/linux-shell.png` }]
-    ],
 
 
     navbar: [
