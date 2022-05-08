@@ -1,34 +1,23 @@
 // docs/.vuepress/config.ts
 import {defineUserConfig} from 'vuepress'
+import { mixTheme } from 'vuepress-theme-mix'
+
 
 export default defineUserConfig({
   lang: 'zh-CN',
   title: '程序人生',
   description: '学如逆水行舟, 不进则退',
   // Theme Config
-  theme: 'vuepress-theme-mix',
-  plugins: [
-    [
-      "vuepress-plugin-chart",
-    ],
-    [
-      "@renovamen/vuepress-plugin-mermaid",
-    ],
-    [
-      "@renovamen/vuepress-plugin-katex",
-    ]
-  ],
-  themeConfig: {
+  theme: mixTheme({
+    themePlugins: {
+      git: true
+    },
     // logo: '/images/logo.png',
     title: '程序人生',
     head: [
       ['link', { rel: 'shortcut icon', type: "image/x-icon", href: `https://cdn.jansora.com/img/linux-shell.png` }]
     ],
-    themePlugins: {
-      // shiki: false,
-      git: false,
 
-    },
 
     navbar: [
       {
@@ -54,7 +43,17 @@ export default defineUserConfig({
       ],
     },
 
-
-  },
+  }),
+  plugins: [
+    {
+      name: "vuepress-plugin-chart",
+    },
+    {
+      name: "@renovamen/vuepress-plugin-mermaid",
+    },
+    {
+      name: "@renovamen/vuepress-plugin-katex",
+    },
+  ],
 
 })
