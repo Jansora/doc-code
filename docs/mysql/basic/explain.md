@@ -49,3 +49,47 @@ MySQL每一个SELECT关键字代表的小查询都定义了一个称之为select
 
 ![select_type 的官方解释](https://cdn.jansora.com/files/uPic/2022/05/10/XYRL6e.png)
 
+#### SIMPLE
+
+查询语句中不包含UNION或者子查询的查询都算作是SIMPLE类型，比方说下边这个单表查询的select_type的值就是SIMPLE：
+
+```sql
+EXPLAIN SELECT * FROM t1;
+```
+![](https://cdn.jansora.com/files/uPic/2022/05/11/OcQ8ro.png)
+
+
+#### PRIMARY
+对于包含UNION、UNION ALL或者子查询的大查询来说，它是由几个小查询组成的，其中最左边的那个查询的select_type值就是PRIMARY
+
+```sql
+EXPLAIN SELECT * FROM t1 UNION SELECT * FROM t2;
+```
+![](https://cdn.jansora.com/files/uPic/2022/05/11/NoRO0d.png)
+
+#### UNION
+
+对于包含UNION或者UNION ALL的大查询来说，它是由几个小查询组成的，其中除了最左边的那个小查询以外，其余的小查询的select_type值就是UNION，可以对比上一个例子的效果
+
+#### UNION RESULT
+
+MySQL选择使用临时表来完成UNION查询的去重工作，针对该临时表的查询的select_type就是UNION RESULT，同样对比上面的例子
+
+#### SUBQUERY
+
+如果包含子查询的查询语句不能够转为对应的semi-join的形式，并且该子查询是不相关子查询，并且查询优化器决定采用将该子查询物化的方案来执行该子查询时，该子查询的第一个SELECT关键字代表的那个查询的select_type就是SUBQUERY，比如下边这个查询：
+
+
+
+
+> semi-join子查询，是指当一张表在另一张表找到匹配的记录之后，半连接（semi-jion）返回第一张表中的记录。与条件连接相反，即使在右节点中找到几条匹配的记录，左节点 的表也只会返回一条记录。另外，右节点的表一条记录也不会返回。半连接通常使用IN 或 EXISTS 作为连接条件
+
+> 物化：这个将子查询结果集中的记录保存到临时表的过程称之为物化（Materialize）。那个存储子查询结果集的临时表称之为物化表。正因为物化表中的记录都建立了索引（基于内存的物化表有哈希索引，基于磁盘的有B+树索引），通过索引执行IN语句判断某个操作数在不在子查询结果集中变得非常快，从而提升了子查询语句的性能。
+
+
+
+### type 列
+
+这一列表示关联类型或访问类型，即MySQL决定如何查找表中的行，查找数据行记录的大概范围。依次从最优到最差分别为：`system > const > eq_ref > ref > range > index > ALL` 
+
+一般来说，得保证查询达到range级别，最好达到ref
