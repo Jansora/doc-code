@@ -1,7 +1,7 @@
 ---
 home: true
 title: 主页
-heroImage: https://cdn.jansora.com/application/Jansora/2022/05/06/04:07:04/image.png
+heroImage: https://cdn.jansora.com/files/uPic/2022/05/11/gyeh8c.jpg
 actions:
 - text: Getting Started
   link: /mysql/basic/explain.md

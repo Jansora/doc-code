@@ -8,7 +8,7 @@ export default defineUserConfig({
   title: '程序人生',
   description: '学如逆水行舟, 不进则退',
   head: [
-    ['link', { rel: 'shortcut icon', type: "image/x-icon", href: `https://cdn.jansora.com/img/linux-shell.png` }]
+    ['link', { rel: 'shortcut icon', type: "image/x-icon", href: `https://cdn.jansora.com/files/uPic/2022/05/11/gyeh8c.jpg` }]
   ],
 
   // Theme Config
