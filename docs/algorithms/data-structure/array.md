@@ -36,7 +36,7 @@ toc: 'content'
 
 见下图
 
-![img_12.png](/alogrithms/img_12.png)
+![img_12.png](https://cdn.jansora.com/files/uPic/2022/05/14/img_12.png)
 
 **类似题目:**
 
@@ -52,7 +52,7 @@ toc: 'content'
 原地旋转矩阵就是在原矩阵中做定向替换,
 
 如何「原地」旋转二维矩阵？稍想一下，感觉操作起来非常复杂，可能要设置巧妙的算法机制来「一圈一圈」旋转矩阵：
-![img_13.png](/alogrithms/img_13.png)
+![img_13.png](https://cdn.jansora.com/files/uPic/2022/05/14/img_13.png)
 
 
 **类似题目:**

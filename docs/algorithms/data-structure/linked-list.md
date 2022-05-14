@@ -33,11 +33,11 @@ toc: 'content'
 
 具体效果见下图:
 
-![img_2.png](/alogrithms/1.gif)
+![img_2.png](https://cdn.jansora.com/files/uPic/2022/05/14/1.gif)
 
 **类似题目:**
 
-![合并两个有序链表](/alogrithms/img_1.png)
+![合并两个有序链表](https://cdn.jansora.com/files/uPic/2022/05/14/img_1.png)
 
 ### 2.合并 k 个有序链表
 
@@ -54,7 +54,7 @@ toc: 'content'
 
 **类似题目:**
 
-![img_3.png](/alogrithms/img_3.png)
+![img_3.png](https://cdn.jansora.com/files/uPic/2022/05/14/img_3.png)
 ### 3、寻找单链表的倒数第 k 个节点
 **解题思路:**
 两个指针 `p1`, `p2`, 先让 `p2` 比 `p1` 多走 k 步, 然后让 `p1`, `p2` 在同时走即可, 直到 `p2` 走到结束节点.
@@ -62,7 +62,7 @@ toc: 'content'
 
 **类似题目:**
 
-![img_4.png](/alogrithms/img_4.png)
+![img_4.png](https://cdn.jansora.com/files/uPic/2022/05/14/img_4.png)
 
 ### 4、寻找单链表的中点
 **解题思路:**
@@ -70,7 +70,7 @@ toc: 'content'
 
 **类似题目:**
 
-![img_5.png](/alogrithms/img_5.png)
+![img_5.png](https://cdn.jansora.com/files/uPic/2022/05/14/img_5.png)
 
 ### 5、判断链表是否包含环
 **解题思路:**
@@ -79,7 +79,7 @@ toc: 'content'
 
 **类似题目:**
 
-![img_6.png](/alogrithms/img_6.png)
+![img_6.png](https://cdn.jansora.com/files/uPic/2022/05/14/img_6.png)
 
 ### 6、判断两个单链表是否相交并找出交点
 **解题思路:**
@@ -87,13 +87,13 @@ toc: 'content'
 
 这边贴三张图, 一目了然
 
-![img_7.png](/alogrithms/img_7.png)
-![img_8.png](/alogrithms/img_8.png)
-![img_9.png](/alogrithms/img_9.png)
+![img_7.png](https://cdn.jansora.com/files/uPic/2022/05/14/img_7.png)
+![img_8.png](https://cdn.jansora.com/files/uPic/2022/05/14/img_8.png)
+![img_9.png](https://cdn.jansora.com/files/uPic/2022/05/14/img_9.png)
 
 **类似题目:**
 
-![img_10.png](/alogrithms/img_10.png)
+![img_10.png](https://cdn.jansora.com/files/uPic/2022/05/14/img_10.png)
 
 
 ## 反转链表
