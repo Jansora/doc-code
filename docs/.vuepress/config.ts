@@ -30,6 +30,10 @@ export default defineUserConfig({
         link: "/mysql/basic/explain.md",
       },
       {
+        text: '缓存',
+        link: "/mysql/basic/explain.md",
+      },
+      {
         text: '计算机算法',
         link: "/algorithms/data-structure/linked-list.md",
       },

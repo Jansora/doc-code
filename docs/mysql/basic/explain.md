@@ -92,4 +92,40 @@ MySQL选择使用临时表来完成UNION查询的去重工作，针对该临时�
 
 这一列表示关联类型或访问类型，即MySQL决定如何查找表中的行，查找数据行记录的大概范围。依次从最优到最差分别为：`system > const > eq_ref > ref > range > index > ALL` 
 
-一般来说，得保证查询达到range级别，最好达到ref
+一般来说，得保证查询达到range级别，最好达到ref , 才能保证较好的查询性能
+
+#### NULL
+
+mysql能够在优化阶段分解查询语句，在执行阶段用不着再访问表或索引。例如：在索引列中选取最小值，可以单独查找索引来完成，不需要在执行时访问表
+
+#### eq_ref
+
+primary key 或 unique key 索引的所有部分被连接使用 ，最多只会返回一条符合条件的记录。这可能是在 const 之外最好的联接类型了，简单的 select 查询不会出现这种 type。
+
+在连接查询时，如果被驱动表是通过主键或者唯一二级索引列等值匹配的方式进行访问的（如果该主键或者唯一二级索引是联合索引的话，所有的索引列都必须进行等值比较），则对该被驱动表的访问方法就是eq_ref，比方说：
+
+```sql
+EXPLAIN SELECT * FROM t1 INNER JOIN t2 ON t1.id = t2.id;
+```
+
+![](https://cdn.jansora.com/files/uPic/2022/05/13/TYtpQR.png)
+
+#### ref
+
+当通过普通的二级索引列与常量进行等值匹配时来查询某个表，那么对该表的访问方法就可能是ref
+
+相比 eq_ref，不使用唯一索引，而是使用普通索引或者唯一性索引的部分前缀，索引要和某个值相比较，可能会找到多个符合条件的行。
+```sql
+EXPLAIN SELECT * FROM t1 WHERE key1 = 'a';
+```
+
+#### system，const
+
+mysql能对查询的某部分进行优化并将其转化成一个常量（可以看show warnings 的结果）。用于 primary key 或 unique key 的所有列与常数比较时，所以表最多有一个匹配行，读取1次，速度比较快。system是const的特例，表里只有一条元组匹配时为system
+```sql
+EXPLAIN SELECT * FROM t1 WHERE id = 5;
+```
+
+#### ref_or_null
+
+ 
