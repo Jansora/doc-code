@@ -22,6 +22,10 @@ export default defineUserConfig({
 
     navbar: [
       {
+        text: 'Java',
+        link: "/java/data-structure/LinkedHashMap.md",
+      },
+      {
         text: 'MySQL',
         link: "/mysql/basic/explain.md",
       },
@@ -32,6 +36,11 @@ export default defineUserConfig({
     ],
 
     sidebar: {
+      '/java/data-structure/': [
+        {
+          type: 'group', text: '数据结构', link: '', children: ['LinkedHashMap.md']
+        },
+      ],
       '/mysql/basic': [
         {
           type: 'group', text: '基础概念', link: '', children: ['/mysql/basic/explain.md']
