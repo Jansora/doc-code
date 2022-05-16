@@ -271,6 +271,23 @@ EXPLAIN SELECT * FROM t1 INNER JOIN t2 ON t2.key1 = UPPER(t1.key1);
 
 
 ### Extra列
+顾名思义，Extra列是用来说明一些额外信息的，我们可以通过这些额外信息来更准确的理解MySQL到底将如何执行给定的查询语句。
+
+#### Using index
+查询的列被索引覆盖，并且where筛选条件是索引的前导列，是性能高的表现。一般是使用了覆盖索引(索引包含了所有查询的字段)
+
+```sql
+EXPLAIN SELECT key1 FROM t1 WHERE key1 = 'a';
+ ```
+
+#### Using where
+当我们使用全表扫描来执行对某个表的查询，并且该语句的WHERE子句中有针对该表的搜索条件时，在Extra列中会提示上述额外信息。比如下边这个查询
+
+```sql
+EXPLAIN SELECT * FROM t1 WHERE name= 'a1b6cee57a';
+```
+
+
 
 
 
