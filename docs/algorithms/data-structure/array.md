@@ -24,7 +24,7 @@ toc: 'content'
 
 **类似题目:**
 
-![前缀和数组](/alogrithms/img_11.png)
+![前缀和数组](https://cdn.jansora.com/files/uPic/2022/05/14/img_11.png)
 
 ## 差分数组
 
