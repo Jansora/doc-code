@@ -225,3 +225,53 @@ EXPLAIN SELECT * FROM t1 WHERE key1 = 'a';
 
 由于key1列的类型是VARCHAR(100)，所以该列实际最多占用的存储空间就是300字节，又因为该列允许存储NULL值，所以key_len需要加1，又因为该列是可变长度列，所以key_len需要加2，所以最后ken_len的值就是303。
 
+### rows列
+
+这一列是mysql估计要读取并检测的行数，注意这个不是结果集里的行数。
+
+如果查询优化器决定使用全表扫描的方式对某个表执行查询时，执行计划的rows列就代表预计需要扫描的行数，如果使用索引来执行查询时，执行计划的rows列就代表预计扫描的索引记录行数。比如下边这个查询：
+
+```sql
+EXPLAIN SELECT * FROM t1 WHERE key1 > 'a';
+```
+
+我们看到执行计划的rows列的值是113，这意味着查询优化器在经过分析使用idx_key1进行查询的成本之后，觉得满足key1 > 'a'这个条件的记录只有113条。
+
+
+### ref列
+
+这一列显示了在key列记录的索引中，表查找值所用到的列或常量，常见的有：const（常量），字段名（例：t1.id）
+
+ref列展示的就是与索引列作等值匹配的值什么，比如只是一个常数或者是某个列。大家看下边这个查询：
+
+看下边这个查询：
+```sql
+EXPLAIN SELECT * FROM t1 WHERE key1 = 'a';
+```
+
+可以看到ref列的值是const，表明在使用idx_key1索引执行查询时，与key1列作等值匹配的对象是一个常数，当然有时候更复杂一点：
+
+
+```sql
+EXPLAIN SELECT * FROM t1 INNER JOIN t2 ON t1.id = t2.id;
+```
+可以看到对被驱动表t1的访问方法是eq_ref，而对应的ref列的值是canal_manager.t2.id，
+这说明在对被驱动表进行访问时会用到PRIMARY索引，也就是聚簇索引与一个列进行等值匹配的条件，于t2表的id作等值匹配的对象就是canal_manager.t2.id列（注意这里把数据库名也写出来了）。
+
+
+
+
+有的时候与索引列进行等值匹配的对象是一个函数，比方说下边这个查询
+
+```sql
+EXPLAIN SELECT * FROM t1 INNER JOIN t2 ON t2.key1 = UPPER(t1.key1);
+```
+
+我们看执行计划的第二条记录，可以看到对t2表采用ref访问方法执行查询，然后在查询计划的ref列里输出的是func，说明与t2表的key1列进行等值匹配的对象是一个函数。
+
+
+### Extra列
+
+
+
+
