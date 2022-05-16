@@ -201,8 +201,27 @@ EXPLAIN SELECT * FROM t1 WHERE key1 > 'z' AND key2 = 'a';
 
 这一列显示了mysql在索引里使用的字节数，通过这个值可以算出具体使用了索引中的哪些列
 
-> key_len计算规则如下：字符串 char(n)：n字节长度 varchar(n)：2字节存储字符串长度，如果是utf-8，则长度 3n + 2 数值类型 tinyint：1字节 smallint：2字节 int：4字节 bigint：8字节　　 时间类型　 date：3字节 timestamp：4字节 datetime：8字节
+对于使用固定长度类型的索引列来说，它实际占用的存储空间的最大长度就是该固定值，对于指定字符集的变长类型的索引列来说，比如某个索引列的类型是VARCHAR(100)，使用的字符集是utf8，那么该列实际占用的最大存储空间就是100 × 3 = 300个字节。
+
+如果该索引列可以存储NULL值，则key_len比不可以存储NULL值时多1个字节。
 
 
+> key_len计算规则如下：
+> 字符串 char(n)：n 字节长度 varchar(n)：2字节存储字符串长度，如果是utf-8，则长度 3n + 2 
+> 数值类型 tinyint：1字节 smallint：2字节 int：4字节 bigint：8字节　　 
+> 时间类型　 date：3字节 timestamp：4字节 datetime：8字节
 
+比如下边这个查询：
+```sql
+EXPLAIN SELECT * FROM s1 WHERE id = 5;
+```
+
+由于id列的类型是INT，并且不可以存储NULL值，所以在使用该列的索引时key_len大小就是4。
+
+对于可变长度的索引列来说，比如下边这个查询：
+```sql
+EXPLAIN SELECT * FROM t1 WHERE key1 = 'a';
+```
+
+由于key1列的类型是VARCHAR(100)，所以该列实际最多占用的存储空间就是300字节，又因为该列允许存储NULL值，所以key_len需要加1，又因为该列是可变长度列，所以key_len需要加2，所以最后ken_len的值就是303。
 
