@@ -60,16 +60,15 @@ export default defineUserConfig({
           type: 'group', text: '基础概念', link: '', children: ['/mysql/basic/explain.md']
         },
       ],
-      '/spring/core/': [
+      '/spring/': [
         {
-          type: 'group', text: 'Spring Core', link: '', children: ['/spring/core/bean.md']
+          type: 'group', text: 'Spring Core', link: 'core', children: ['/spring/core/bean.md']
         },
-      ],
-      '/spring/boot/': [
         {
           type: 'group', text: 'Spring Boot', link: '', children: ['/spring/boot/autoconfiguration.md']
         },
       ],
+
       '/algorithms/data-structure': [
         {
           type: 'group', text: '数据结构', link: '', children: ['/algorithms/data-structure/linked-list.md', '/algorithms/data-structure/array.md']
