@@ -36,6 +36,10 @@ export default defineUserConfig({
         link: "/mysql/basic/explain.md",
       },
       {
+        text: '设计模式',
+        link: "/design-mode/README.md",
+      },
+      {
         text: '计算机算法',
         link: "/algorithms/data-structure/linked-list.md",
       },
