@@ -41,7 +41,7 @@ export default defineUserConfig({
       },
       {
         text: 'Spring',
-        link: "/spring/spring-boot/autoconfiguration.md",
+        link: "/spring/boot/autoconfiguration.md",
       },
       {
         text: '计算机算法',
@@ -58,6 +58,16 @@ export default defineUserConfig({
       '/mysql/basic': [
         {
           type: 'group', text: '基础概念', link: '', children: ['/mysql/basic/explain.md']
+        },
+      ],
+      '/spring/core/': [
+        {
+          type: 'group', text: 'Spring Core', link: '', children: ['/spring/core/bean.md']
+        },
+      ],
+      '/spring/boot/': [
+        {
+          type: 'group', text: 'Spring Boot', link: '', children: ['/spring/boot/autoconfiguration.md']
         },
       ],
       '/algorithms/data-structure': [
