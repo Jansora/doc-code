@@ -340,9 +340,10 @@ EXPLAIN SELECT * FROM t1 WHERE 1 != 1;
 ```
 
 #### Using filesort
-
-```sql
 mysql 会对结果使用一个外部索引排序，而不是按索引次序从表里读取行。此时mysql会根据联接类型浏览所有符合条件的记录，并保存排序关键字和行指针，然后排序关键字并按顺序检索行信息。这种情况下一般也是要考虑使用索引来优化的。
 
 name未创建索引，会浏览t1整个表，保存排序关键字name和对应的id，然后排序name并检索行记录
+
+```sql
+explain select * from t1 order by name;
 ```
