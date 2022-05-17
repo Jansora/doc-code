@@ -287,8 +287,62 @@ EXPLAIN SELECT key1 FROM t1 WHERE key1 = 'a';
 EXPLAIN SELECT * FROM t1 WHERE name= 'a1b6cee57a';
 ```
 
+#### Using where Using index
+
+查询的列被索引覆盖，并且where筛选条件是索引列之一但是不是索引的前导列，意味着无法直接通过索引查找来查询到符合条件的数据
+
+```sql
+EXPLAIN SELECT id FROM t1 WHERE key3= 'a1b6cee57a';
+```
+
+#### NULL
+
+查询的列未被索引覆盖，并且where筛选条件是索引的前导列，意味着用到了索引，但是部分字段未被索引覆盖，必须通过“回表”来实现，不是纯粹地用到了索引，也不是完全没用到索引
+
+#### Using index condition
+
+与Using where类似，查询的列不完全被索引覆盖，where条件中是一个前导列的范围；
+```sql
+EXPLAIN SELECT * FROM t1 WHERE key1 like '1';
+```
+
+#### Using temporary
+
+在许多查询的执行过程中，MySQL可能会借助临时表来完成一些功能，比如去重、排序之类的，比如我们在执行许多包含DISTINCT、GROUP BY、UNION等子句的查询过程中，如果不能有效利用索引来完成查询，MySQL很有可能寻求通过建立内部的临时表来执行查询。如果查询中使用到了内部的临时表，在执行计划的Extra列将会显示Using temporary提示，比方说这样：
+
+name没有索引，此时创建了张临时表来distinct
+
+```sql
+explain select distinct name from t1;
+```
+
+key1建立了idx_key1索引，此时查询时extra是using index,没有用临时表
 
 
+```sql
+explain select distinct key1 from t1;
+```
+
+#### No tables used
+
+当查询语句的没有FROM子句时将会提示该额外信息，比如：
 
 
+```sql
+EXPLAIN SELECT 1;
+```
+#### Impossible WHERE
 
+查询语句的WHERE子句永远为FALSE时将会提示该额外信息，比方说：
+
+```sql
+EXPLAIN SELECT * FROM t1 WHERE 1 != 1;
+```
+
+#### Using filesort
+
+```sql
+mysql 会对结果使用一个外部索引排序，而不是按索引次序从表里读取行。此时mysql会根据联接类型浏览所有符合条件的记录，并保存排序关键字和行指针，然后排序关键字并按顺序检索行信息。这种情况下一般也是要考虑使用索引来优化的。
+
+name未创建索引，会浏览t1整个表，保存排序关键字name和对应的id，然后排序name并检索行记录
+```
