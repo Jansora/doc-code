@@ -40,6 +40,10 @@ export default defineUserConfig({
         link: "/design-mode/README.md",
       },
       {
+        text: 'Spring',
+        link: "/spring/spring-boot/autoconfiguration.md",
+      },
+      {
         text: '计算机算法',
         link: "/algorithms/data-structure/linked-list.md",
       },
