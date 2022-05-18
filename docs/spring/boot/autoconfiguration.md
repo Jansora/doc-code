@@ -62,19 +62,19 @@ org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration,\
 
 在 `EnableAutoConfiguration` 上标注了 `@Import(AutoConfigurationImportSelector.class)` ,
 
-![by73Wp](https://cdn.jansora.com/files/uPic/2022/05/18/by73Wp.png)
+![](https://cdn.jansora.com/files/uPic/2022/05/18/by73Wp.png)
 
 
 `AutoConfigurationImportSelector` 的 `selectImports()` 方法调用了自身的 `getAutoConfigurationEntry` 方法
 
-![DfDp3Y](https://cdn.jansora.com/files/uPic/2022/05/18/DfDp3Y.png)
+![](https://cdn.jansora.com/files/uPic/2022/05/18/DfDp3Y.png)
 
 `getAutoConfigurationEntry` 调用了 `getCandidateConfigurations` 方法, 
 
-![ikzm7E](https://cdn.jansora.com/files/uPic/2022/05/18/ikzm7E.png)
+![](https://cdn.jansora.com/files/uPic/2022/05/18/ikzm7E.png)
 
 
-`getAutoConfigurationEntry` 方法中  `SpringFactoriesLoader.loadFactoryNames` 会扫描 所有包含 `META-INF/spring.factories` 的 `jar` 包
+`SpringFactoriesLoader.loadFactoryNames` 会扫描所有包含 `META-INF/spring.factories` 的 `jar` 包
 中的如果存在 key 为 `org.springframework.boot.autoconfigure.EnableAutoConfiguration` 下的所有类都会被自动装配并加载
 
 
@@ -99,4 +99,3 @@ AutoConfigurationImportSelector.selectImports
 
 
 
-## 如何自定义一个 starter ?

@@ -65,7 +65,7 @@ export default defineUserConfig({
           type: 'group', text: 'Spring Core', link: 'core', children: ['/spring/core/bean.md']
         },
         {
-          type: 'group', text: 'Spring Boot', link: '', children: ['/spring/boot/autoconfiguration.md']
+          type: 'group', text: 'Spring Boot', link: '', children: ['/spring/boot/autoconfiguration.md','/spring/boot/starter.md']
         },
       ],
 
