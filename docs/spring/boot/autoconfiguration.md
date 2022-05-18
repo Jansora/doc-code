@@ -74,7 +74,7 @@ org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration,\
 ![](https://cdn.jansora.com/files/uPic/2022/05/18/ikzm7E.png)
 
 
-`SpringFactoriesLoader.loadFactoryNames` 会扫描所有包含 `META-INF/spring.factories` 的 `jar` 包
+`getAutoConfigurationEntry` 方法中  `SpringFactoriesLoader.loadFactoryNames` 会扫描 所有包含 `META-INF/spring.factories` 的 `jar` 包
 中的如果存在 key 为 `org.springframework.boot.autoconfigure.EnableAutoConfiguration` 下的所有类都会被自动装配并加载
 
 
