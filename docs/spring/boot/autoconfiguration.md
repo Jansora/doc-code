@@ -11,7 +11,7 @@
 
 1. 在 `pom.xml` 里面引入`spring-boot-starter-data-redis.jar` 包.
 2. 在 `application.properties` 里面加入配置项 (如果你的 `redis` 是在本机 6379 的端口上安装的, 那么连该步骤都不需要)
-```properties
+```bash
 spring.redis.database = 0
 spring.redis.timeout = 10000
 spring.redis.host = 10.72.16.9
