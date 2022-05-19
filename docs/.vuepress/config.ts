@@ -62,11 +62,11 @@ export default defineUserConfig({
       ],
       '/spring/': [
         {
-          type: 'group', text: 'Spring 简介', link: '', children: ['/spring/README.md', '/spring/base/annotation.md']
+          type: 'group', text: 'Spring Core', link: '', children: ['/spring/README.md', '/spring/core/annotation.md', '/spring/core/design.md']
         },
-        {
-          type: 'group', text: 'Spring Core', link: 'core', children: ['/spring/core/bean.md']
-        },
+        // {
+        //   type: 'group', text: 'Spring Core', link: 'core', children: ['/spring/core/bean.md']
+        // },
         {
           type: 'group', text: 'Spring Boot', link: '', children: ['/spring/boot/autoconfiguration.md','/spring/boot/starter.md']
         },
