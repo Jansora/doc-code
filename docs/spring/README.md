@@ -1,7 +1,7 @@
-# Spring
+# Spring 是什么
 
-## Spring 是什么
-> ![Spring](https://mp.weixin.qq.com/s/2OEnb7T1tlwBjx5cuEoh6w)
+
+![](https://mp.weixin.qq.com/s/2OEnb7T1tlwBjx5cuEoh6w)
 
 Spring 是一个轻量级、非入侵式的控制反转 (IoC) 和面向切面 (AOP) 的框架。
 
@@ -25,7 +25,7 @@ Spring 对 JavaEE 开发中非常难用的一些 API（JDBC、JavaMail、远程�
 
 ## Spring 都有哪些模块
 
-![](https://cdn.jansora.com/files/uPic/2022/05/19/PDDtRl.jpg)
+
 
 最主要的七大模块：
 
@@ -36,3 +36,8 @@ Spring 对 JavaEE 开发中非常难用的一些 API（JDBC、JavaMail、远程�
 - Spring DAO：提供对 JDBC 抽象层，简化了 JDBC 编码，同时，编码更具有健壮性。
 - Spring ORM：它支持用于流行的 ORM 框架的整合，比如：Spring + Hibernate、Spring + iBatis、Spring + JDO 的整合等。
 - Spring AOP：即面向切面编程，它提供了与 AOP 联盟兼容的编程实现。
+
+
+## 附录
+
+![Spring 模块图](https://cdn.jansora.com/files/uPic/2022/05/19/PDDtRl.jpg)
