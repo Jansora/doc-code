@@ -62,6 +62,9 @@ export default defineUserConfig({
       ],
       '/spring/': [
         {
+          type: 'group', text: 'Spring', link: '', children: ['/spring/README.md', '/spring/base/annotation.md']
+        },
+        {
           type: 'group', text: 'Spring Core', link: 'core', children: ['/spring/core/bean.md']
         },
         {
