@@ -5,7 +5,7 @@ import { mixTheme } from 'vuepress-theme-mix'
 
 export default defineUserConfig({
   lang: 'zh-CN',
-  title: '程序人生',
+  title: '戎码一生',
   description: '学如逆水行舟, 不进则退',
 
   head: [
@@ -19,7 +19,7 @@ export default defineUserConfig({
       git: true
     },
     // logo: '/images/logo.png',
-    title: '程序人生',
+    title: '戎码一生',
 
 
     navbar: [
