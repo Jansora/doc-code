@@ -19,9 +19,8 @@ export default defineUserConfig({
       git: true
     },
     // logo: '/images/logo.png',
-    
-    title: '戎码一生',
 
+    title: '戎码一生',
 
     navbar: [
       {
