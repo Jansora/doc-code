@@ -57,7 +57,10 @@ export default defineUserConfig({
       ],
       '/mysql/': [
         {
-          type: 'group', text: '基础概念', link: '', children: ['/mysql/basic/explain.md', '/mysql/basic/transaction.md', '/mysql/basic/mvcc.md']
+          type: 'group', text: '基础概念', link: '', children: ['/mysql/basic/explain.md', '/mysql/basic/transaction.md']
+        },
+        {
+          type: 'group', text: '事务', link: '', children: ['/mysql/transaction/README.md', '/mysql/transaction/mvcc.md']
         },
         {
           type: 'group', text: '优化', link: '', children: ['/mysql/optimize/optimize-select.md']
