@@ -1,6 +1,6 @@
 // docs/.vuepress/config.ts
 import {defineUserConfig} from 'vuepress'
-import { mixTheme } from 'vuepress-theme-mix'
+import {mixTheme} from 'vuepress-theme-mix'
 
 
 export default defineUserConfig({
@@ -55,9 +55,12 @@ export default defineUserConfig({
           type: 'group', text: '数据结构', link: '', children: ['LinkedHashMap.md']
         },
       ],
-      '/mysql/basic': [
+      '/mysql/': [
         {
-          type: 'group', text: '基础概念', link: '', children: ['/mysql/basic/explain.md']
+          type: 'group', text: '基础概念', link: '', children: ['/mysql/basic/explain.md', '/mysql/basic/transaction.md', '/mysql/basic/mvcc.md']
+        },
+        {
+          type: 'group', text: '优化', link: '', children: ['/mysql/optimize/optimize-select.md']
         },
       ],
       '/spring/': [
