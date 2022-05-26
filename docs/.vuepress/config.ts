@@ -66,7 +66,7 @@ export default defineUserConfig({
           type: 'group', text: '事务', link: '', children: ['/mysql/transaction/README.md', '/mysql/transaction/mvcc.md']
         },
         {
-          type: 'group', text: '总结', link: '', children: ['/mysql/summary/optimize-select.md', '/mysql/summary/command.md']
+          type: 'group', text: '运维', link: '', children: ['/mysql/devops/sql.md', '/mysql/devops/optimize-index.md', '/mysql/devops/information_schema.md']
         },
       ],
       '/spring/': [
