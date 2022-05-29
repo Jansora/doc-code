@@ -36,6 +36,10 @@ export default defineUserConfig({
         link: "/mysql/basic/explain.md",
       },
       {
+        text: 'kubernates',
+        link: "/kubernates/README.md",
+      },
+      {
         text: '设计模式',
         link: "/design-mode/README.md",
       },
@@ -80,7 +84,12 @@ export default defineUserConfig({
           type: 'group', text: 'Spring Boot', link: '', children: ['/spring/boot/autoconfiguration.md','/spring/boot/starter.md']
         },
       ],
-
+      '/kubernates': [
+        {
+          type: 'group', text: '数据结构', link: '', children: ['/kubernates/plugins/dashboard',
+            ]
+        },
+      ],
       '/algorithms/data-structure': [
         {
           type: 'group', text: '数据结构', link: '', children: ['/algorithms/data-structure/linked-list.md', '/algorithms/data-structure/array.md']
