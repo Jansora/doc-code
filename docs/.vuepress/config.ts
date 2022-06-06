@@ -67,7 +67,7 @@ export default defineUserConfig({
           ]
         },
         {
-          type: 'group', text: '优化', link: '', children: ['/mysql/optimize/README.md', '/mysql/limit/README.md']
+          type: 'group', text: '优化', link: '', children: ['/mysql/optimize/README.md', '/mysql/optimize/limit.md']
         },
         {
           type: 'group', text: '运维', link: '', children: ['/mysql/devops/sql.md', '/mysql/devops/optimize-index.md', '/mysql/devops/information_schema.md']
