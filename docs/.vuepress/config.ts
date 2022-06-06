@@ -63,11 +63,11 @@ export default defineUserConfig({
         {
           type: 'group', text: '基础知识', link: '', children: ['/mysql/basic/infrastructure.md',
             '/mysql/basic/explain.md', '/mysql/basic/transaction.md', '/mysql/basic/logging.md',
-            // '/mysql/basic/exec-sql.md',
+            '/mysql/transaction/mvcc.md'
           ]
         },
         {
-          type: 'group', text: '事务', link: '', children: ['/mysql/transaction/README.md', '/mysql/transaction/mvcc.md']
+          type: 'group', text: '优化', link: '', children: ['/mysql/optimize/README.md', '/mysql/limit/README.md']
         },
         {
           type: 'group', text: '运维', link: '', children: ['/mysql/devops/sql.md', '/mysql/devops/optimize-index.md', '/mysql/devops/information_schema.md']
