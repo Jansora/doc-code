@@ -56,7 +56,7 @@ export default defineUserConfig({
     sidebar: {
       '/java/data-structure/': [
         {
-          type: 'group', text: '数据结构', link: '', children: ['LinkedHashMap.md']
+          type: 'group', text: '数据结构', link: '', children: ['HashMap.md', 'LinkedHashMap.md', 'ConcurrentHashMap.md']
         },
       ],
       '/mysql/': [
