@@ -92,7 +92,9 @@ export default defineUserConfig({
       ],
       '/algorithms/data-structure': [
         {
-          type: 'group', text: '数据结构', link: '', children: ['/algorithms/data-structure/linked-list.md', '/algorithms/data-structure/array.md']
+          type: 'group', text: '数据结构', link: '', children: [
+            '/algorithms/data-structure/red-black-tree.md',
+            '/algorithms/data-structure/linked-list.md', '/algorithms/data-structure/array.md']
         },
       ],
     },
