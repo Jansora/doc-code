@@ -51,6 +51,11 @@ export default defineUserConfig({
         text: '计算机算法',
         link: "/algorithms/data-structure/linked-list.md",
       },
+      {
+        text: '查漏补缺',
+        link: "/summary/tcp-ip-handshakes.md",
+      },
+
     ],
 
     sidebar: {
@@ -95,6 +100,12 @@ export default defineUserConfig({
           type: 'group', text: '数据结构', link: '', children: [
             '/algorithms/data-structure/red-black-tree.md',
             '/algorithms/data-structure/linked-list.md', '/algorithms/data-structure/array.md']
+        },
+      ],
+      '/summary/': [
+        {
+          type: 'group', text: '暂定', link: '', children: [
+            "/summary/tcp-ip-handshakes.md",]
         },
       ],
     },
