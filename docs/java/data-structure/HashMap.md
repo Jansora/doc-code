@@ -19,5 +19,14 @@
 选择0.75作为默认的加载因子，完全是时间和空间成本上寻求的一种折衷选择。
 
 
+## HashMap 和 HashTable 有什么区别？
+①、HashMap 是线程不安全的，HashTable 是线程安全的；
 
+②、由于线程安全，所以 HashTable 的效率比不上 HashMap；
+
+③、HashMap最多只允许一条记录的键为null，允许多条记录的值为null，而 HashTable不允许；
+
+④、HashMap 默认初始化数组的大小为16，HashTable 为 11，前者扩容时，扩大两倍，后者扩大两倍+1；
+
+⑤、HashMap 需要重新计算 hash 值，而 HashTable 直接使用对象的 hashCode
 
