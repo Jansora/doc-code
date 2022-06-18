@@ -64,6 +64,11 @@ export default defineUserConfig({
           type: 'group', text: '数据结构', link: '', children: ['HashMap.md', 'LinkedHashMap.md', 'ConcurrentHashMap.md']
         },
       ],
+      '/java/concurrent/': [
+        {
+          type: 'group', text: '数据结构', link: '', children: ['synchronized.md', 'cas.md']
+        },
+      ],
       '/mysql/': [
         {
           type: 'group', text: '基础知识', link: '', children: ['/mysql/basic/infrastructure.md',
