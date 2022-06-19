@@ -67,7 +67,7 @@ export default defineUserConfig({
               ]
         },
         {
-          type: 'group', text: '并发', link: '', children: ['/java/concurrent/synchronized.md', '/java/concurrent/cas.md']
+          type: 'group', text: '并发', link: '', children: ['/java/concurrent/java-lock.md', '/java/concurrent/synchronized.md', '/java/concurrent/cas.md']
         },
       ],
       '/mysql/': [
