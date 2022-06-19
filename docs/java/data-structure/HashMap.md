@@ -30,3 +30,34 @@
 
 ⑤、HashMap 需要重新计算 hash 值，而 HashTable 直接使用对象的 hashCode
 
+
+
+
+## 初始化
+
+threshold: 初始化时将阈值置为大于初始容量(initialCapacity)容量的2的幂值
+(比如 initialCapacity 为 15, 那么 threshold 即 16, 比如 initialCapacity 为 800, 那么 threshold 即 1024)
+> 测试:  [HashMap 计算阈值(threshold)方法](https://www.jansora.com/play/java/ef42c45d39805ad227dd90e7dd6f91ac)
+## 对 key 进行 hash 运算
+key 为 null 时 hash 即为 0,
+key 不为 null 时计算对象 key 自身的hashcode运算得到的 32 int 整数的高低16为为进行异或运算
+
+这么做的目的是为了混合哈希值的高位和地位，增加低位的随机性。并且混合后的值也变相保持了高位的特征。
+
+见下图
+![扰动函数](https://cdn.jansora.com/files/uPic/2022/06/19/1jsVx5.webp)
+
+
+## 插值
+1. 如果 table 没有初始化 -> 初始化
+2. 对 key 执行 hash 运算后与当前容量进行与操作(避免超出索引), 得到当前 key 在数组中的索引位置 index
+3. 判断 table[index]
+   1. 如果 table[index] 为空, 直接 new Node 存放到位置中.
+   2. 如果 table[index] 不为空.
+      1. 
+
+
+## 扩容
+
+
+
