@@ -115,7 +115,8 @@ ConcurrentHashMap  选择了与 HashMap 相同的Node数组+链表+红黑树结�
 
 
 ## 扩容
-
+> 参考 https://blog.csdn.net/zzu_seu/article/details/106698150
+>
 在 addCount 重新计算 size 中.
 1. 重新计算 count(). count() 如果大于下一个扩容标识, 进行扩容. 如果扩容, 
    1. 重新计算 resizeStamp. resizeStamp(n) 的返回值为：高16位置0，第16位为1，低15位存放当前容量n，用于表示是对n的扩容。
@@ -124,6 +125,15 @@ ConcurrentHashMap  选择了与 HashMap 相同的Node数组+链表+红黑树结�
 
 transfer 扩容:
 1. 新建扩容一倍的数组
-2. 根据
+2. 每个线程在扩容时拿到的长度，最小为16。
 
-> 先参考 https://blog.csdn.net/zzu_seu/article/details/106698150
+### 什么时候会扩容？
+
+桶上链表长度达到 8 个或者以上，并且数组长度为 64 以下时只会触发扩容而不会将链表转为红黑树 。
+
+sizeCtl默认的情况下等于0，对ConcurrentHashMap进行初始化的时候会对sizeCtl减1，初始化成功后将sizeCtl改为阈值（最大长度*0.75）。
+
+
+
+
+
