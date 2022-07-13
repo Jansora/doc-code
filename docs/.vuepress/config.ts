@@ -97,8 +97,12 @@ export default defineUserConfig({
       ],
       '/kubernates': [
         {
-          type: 'group', text: '数据结构', link: '', children: ['/kubernates/plugins/dashboard',
-            ]
+          type: 'group', text: '数据结构', link: '', children: ['/kubernates/plugins/dashboard',]
+        },
+      ],
+      '/design-mode': [
+        {
+          type: 'group', text: '设计模式', link: '', children: ['/design-mode/README.md','/design-mode/singleton.md',]
         },
       ],
       '/algorithms/data-structure': [
