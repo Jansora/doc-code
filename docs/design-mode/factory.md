@@ -30,4 +30,4 @@
 
 ## Spring 中的例子
 
-AbstractFactoryBean
+FactoryBean
