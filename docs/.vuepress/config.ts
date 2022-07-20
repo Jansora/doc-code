@@ -31,10 +31,10 @@ export default defineUserConfig({
         text: 'MySQL',
         link: "/mysql/basic/explain.md",
       },
-      {
-        text: '缓存',
-        link: "/mysql/basic/explain.md",
-      },
+      // {
+      //   text: '缓存',
+      //   link: "/mysql/basic/explain.md",
+      // },
       {
         text: 'kubernates',
         link: "/kubernates/README.md",
@@ -95,19 +95,19 @@ export default defineUserConfig({
           type: 'group', text: 'Spring Boot', link: '', children: ['/spring/boot/autoconfiguration.md','/spring/boot/starter.md']
         },
       ],
-      '/kubernates': [
+      '/kubernates/': [
         {
           type: 'group', text: '数据结构', link: '', children: ['/kubernates/plugins/dashboard',]
         },
       ],
-      '/design-mode': [
+      '/design-mode/': [
         {
-          type: 'group', text: '设计模式', link: '', children: ['/design-mode/README.md','/design-mode/singleton.md','/design-mode/factory.md',,'/design-mode/build.md',
+          type: 'group', text: '设计模式', link: '', children: ['/design-mode/README.md', '/design-mode/singleton.md','/design-mode/factory.md','/design-mode/build.md',
             '/design-mode/prototype.md', '/design-mode/facade.md', '/design-mode/adapter.md',
             '/design-mode/bridge.md', '/design-mode/prototype.md' , '/design-mode/prototype.md', ]
         },
       ],
-      '/algorithms/data-structure': [
+      '/algorithms/data-structure/': [
         {
           type: 'group', text: '数据结构', link: '', children: [
             '/algorithms/data-structure/red-black-tree.md',
