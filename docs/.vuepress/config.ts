@@ -102,11 +102,23 @@ export default defineUserConfig({
       ],
       '/design-mode/': [
         {
-          type: 'group', text: '', link: '', children: ['/design-mode/README.md', '/design-mode/singleton.md','/design-mode/factory.md','/design-mode/builder.md',
-            '/design-mode/prototype.md', '/design-mode/facade.md', '/design-mode/adapter.md',
-            '/design-mode/bridge.md', '/design-mode/prototype.md' , '/design-mode/prototype.md', ]
+          type: 'group', text: '设计模式', link: '', children: ['/design-mode/README.md', ]
+        },
+        {
+          type: 'group', text: '创建型', link: '', children: ['/design-mode/singleton.md','/design-mode/factory.md','/design-mode/builder.md',
+            '/design-mode/prototype.md' ]
+        },
+        {
+          type: 'group', text: '结构型', link: '', children: ['/design-mode/facade.md', '/design-mode/adapter.md',
+            '/design-mode/bridge.md', '/design-mode/decorator.md' , '/design-mode/flyweight.md',  '/design-mode/decorator.md',  '/design-mode/proxy.md', ]
+        },
+        {
+          type: 'group', text: '行为型', link: '', children: ['/design-mode/ChainOfResponsibility.md']
         },
       ],
+
+
+
       '/algorithms/data-structure/': [
         {
           type: 'group', text: '数据结构', link: '', children: [

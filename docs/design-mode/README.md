@@ -1,4 +1,4 @@
-# 设计模式
+# 简介
 
 > 有参考 https://pdai.tech/md/dev-spec/pattern/1_overview.html
 
