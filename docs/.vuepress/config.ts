@@ -113,7 +113,9 @@ export default defineUserConfig({
             '/design-mode/bridge.md', '/design-mode/decorator.md' , '/design-mode/flyweight.md',  '/design-mode/decorator.md',  '/design-mode/proxy.md', ]
         },
         {
-          type: 'group', text: '行为型', link: '', children: ['/design-mode/ChainOfResponsibility.md']
+          type: 'group', text: '行为型', link: '', children: ['/design-mode/ChainOfResponsibility.md', '/design-mode/strategy.md','/design-mode/TemplateMethod.md',
+            '/design-mode/command.md', '/design-mode/strategy.md','/design-mode/TemplateMethod.md',
+          ]
         },
       ],
 
