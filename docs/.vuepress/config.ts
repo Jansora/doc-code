@@ -102,7 +102,7 @@ export default defineUserConfig({
       ],
       '/design-mode/': [
         {
-          type: 'group', text: '设计模式', link: '', children: ['/design-mode/README.md', '/design-mode/singleton.md','/design-mode/factory.md','/design-mode/build.md',
+          type: 'group', text: '', link: '', children: ['/design-mode/README.md', '/design-mode/singleton.md','/design-mode/factory.md','/design-mode/builder.md',
             '/design-mode/prototype.md', '/design-mode/facade.md', '/design-mode/adapter.md',
             '/design-mode/bridge.md', '/design-mode/prototype.md' , '/design-mode/prototype.md', ]
         },

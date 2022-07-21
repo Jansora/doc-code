@@ -1,4 +1,4 @@
-# 创建型 - 单例模式(Singleton pattern)
+# 单例模式(Singleton pattern)
 
 使用一个私有构造函数、一个私有静态变量以及一个公有静态函数来实现。
 
