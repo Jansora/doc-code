@@ -41,7 +41,7 @@ export default defineUserConfig({
       },
       {
         text: '设计模式',
-        link: "/design-mode/README.md",
+        link: "/design-mode/singleton.md",
       },
       {
         text: 'Spring',
