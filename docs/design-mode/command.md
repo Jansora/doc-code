@@ -14,7 +14,7 @@ public interface Command {
     void execute();
 }
  
-        @pdai: 代码已经复制到剪贴板
+        
   
 ```
 
@@ -32,7 +32,7 @@ public class LightOnCommand implements Command {
     }
 }
  
-        @pdai: 代码已经复制到剪贴板
+        
   
 ```
 
@@ -50,7 +50,7 @@ public class LightOffCommand implements Command {
     }
 }
  
-        @pdai: 代码已经复制到剪贴板
+        
   
 ```
 
@@ -66,7 +66,7 @@ public class Light {
     }
 }
  
-        @pdai: 代码已经复制到剪贴板
+        
   
 ```
 
@@ -101,7 +101,7 @@ public class Invoker {
     }
 }
  
-        @pdai: 代码已经复制到剪贴板
+        
   
 ```
 
@@ -119,7 +119,7 @@ public class Client {
     }
 }
  
-        @pdai: 代码已经复制到剪贴板
+        
   
 ```
 
