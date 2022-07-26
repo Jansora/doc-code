@@ -9,9 +9,9 @@ ReentrantLock 意思为可重入锁，指的是一个线程能够对一个临界
 
 ReentrantLock有三个内部类, Sync 和 FairSync / NonfairSync 锁
 
-Sync: 基于 AQS 实现的可重入锁的同步控制基础。定制 AQS.  在下面子类化为公平版本和不公平版本。使用 AQS state 字段表示锁上的保持次数。
+Sync: 基于 AQS 定制的可重入锁的同步控制基础。在下面子类化为公平版本和不公平版本。使用 AQS state 字段表示锁上的保持次数。
 FairSync: 基于 Sync 实现的公平锁
-FairSync: 基于 Sync 实现的公平锁
+NonFairSync: 基于 Sync 实现的不公平锁
 
 Sync: 
 ## 源码分析
@@ -75,12 +75,7 @@ abstract static class Sync extends AbstractQueuedSynchronizer {
             return getExclusiveOwnerThread() == Thread.currentThread();
         }
 
-        final ConditionObject newCondition() {
-            return new ConditionObject();
-        }
-
         // Methods relayed from outer class
-
         final Thread getOwner() {
             return getState() == 0 ? null : getExclusiveOwnerThread();
         }
@@ -95,4 +90,79 @@ abstract static class Sync extends AbstractQueuedSynchronizer {
 
     }
 
+```
+
+### FairSync
+
+```java
+
+    /**
+     * 基于 Sync 实现的公平锁
+     */
+    static final class FairSync extends Sync {
+        private static final long serialVersionUID = -3000897897090466540L;
+
+        final void lock() {
+            acquire(1);
+        }
+
+        /**
+         * 公平锁的 tryAcquire
+         */
+        protected final boolean tryAcquire(int acquires) {
+            final Thread current = Thread.currentThread();
+            int c = getState();
+            if (c == 0) {
+                // 如果当前线程之前没有排队的线程，即当前线程位于队列的头部或队列为空
+                // 且设置线程成功
+                if (!hasQueuedPredecessors() &&
+                    compareAndSetState(0, acquires)) {
+                    // 设置排它锁
+                    setExclusiveOwnerThread(current);
+                    return true;
+                }
+            }
+            // 如果锁已经被使用了, 但是当前占用锁的是当前线程
+            else if (current == getExclusiveOwnerThread()) {
+                int nextc = c + acquires;
+                if (nextc < 0)
+                    throw new Error("Maximum lock count exceeded");
+                setState(nextc);
+                return true;
+            }
+            return false;
+        }
+    }
+
+```
+
+### NonFairSync
+
+```java
+
+    /**
+     * 基于 Sync 实现的不公平锁
+     */
+    static final class NonfairSync extends Sync {
+        private static final long serialVersionUID = 7316153563782823691L;
+
+        /**
+         * Performs lock.  Try immediate barge, backing up to normal
+         * acquire on failure.
+         */
+        final void lock() {
+            // 先 CAS 锁下试试
+            if (compareAndSetState(0, 1))
+                setExclusiveOwnerThread(Thread.currentThread());
+            else
+                acquire(1);
+        }
+
+        // 参考 Sync 实现
+        protected final boolean tryAcquire(int acquires) {
+            return nonfairTryAcquire(acquires);
+        }
+    }
+    
+    
 ```
