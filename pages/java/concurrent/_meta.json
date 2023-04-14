@@ -1,0 +1,7 @@
+{
+    "ReentrantLock": "可重入锁 (ReentrantLock)",
+    "aqs": "AQS (AbstractQueuedSynchronizer)",
+    "synchronized": "synchronized 关键字",
+    "java-lock": "Java 中的锁",
+    "cas": "CompareAndSwap (CAS) 讲解"
+}

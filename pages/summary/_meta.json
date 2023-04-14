@@ -1,0 +1,6 @@
+{
+    "design-mode": "设计模式",
+    "tcp-ip-handshakes": "TCP IP 三次握手四次挥手",
+    "distributed-lock": "分布式锁",
+    "java-memory-layout": "JAVA 内存布局"
+}

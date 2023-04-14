@@ -1,0 +1,5 @@
+{
+    "ConcurrentHashMap": "ConcurrentHashMap",
+    "HashMap": "HashMap",
+    "LinkedHashMap": "LinkedHashMap"
+}

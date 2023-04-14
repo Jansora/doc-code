@@ -1,0 +1,7 @@
+{
+    "exec-sql": "一条 SQL 是怎么执行的 ?",
+    "transaction": "事务与事务隔离",
+    "explain": "执行计划",
+    "logging": "redo log && binlog",
+    "infrastructure": "基础架构"
+}
