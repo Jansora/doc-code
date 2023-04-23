@@ -12,5 +12,10 @@
         "title": "Postgres",
         "type": "page",
         "href": "/database/postgres"
+    },
+    "elasticsearch": {
+        "title": "ElasticSearch",
+        "type": "page",
+        "href": "/database/elasticsearch/basic/data-type"
     }
 }
