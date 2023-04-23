@@ -3,9 +3,19 @@
         "title": "Java",
         "type": "page"
     },
-    "mysql": {
-        "title": "Mysql",
-        "type": "page"
+    "database": {
+        "title": "数据库",
+        "type": "menu",
+        "items": {
+            "mysql": {
+                "title": "Mysql",
+                "href": "/database/mysql/basic/explain"
+            },
+            "postgres": {
+                "title": "Postgres",
+                "href": "/database/postgres"
+            }
+        }
     },
     "kubernetes": {
         "title": "Kubernetes",
@@ -27,8 +37,8 @@
         "title": "查漏补缺",
         "type": "page"
     },
-    "scripts": {
-        "title": "脚本",
+    "tools": {
+        "title": "小工具",
         "type": "page"
     },
     "contact": {

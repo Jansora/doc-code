@@ -1,0 +1,16 @@
+{
+    "mysql": {
+        "title": "Mysql",
+        "type": "page",
+        "theme": {
+            "layout": "full",
+            "typesetting": "article"
+        },
+        "href": "/database/mysql/basic/explain"
+    },
+    "postgres": {
+        "title": "Postgres",
+        "type": "page",
+        "href": "/database/postgres"
+    }
+}

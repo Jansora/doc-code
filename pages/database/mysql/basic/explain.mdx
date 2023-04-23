@@ -149,7 +149,7 @@ EXPLAIN SELECT * FROM t1 WHERE key2 IN (SELECT id FROM t2 where t1.key1 = t2.key
 
 #### range
 
-范围扫描通常出现在 in(), between ,> ,<, >= 等操作中。使用一个索引来检索给定范围的行。
+范围扫描通常出现在 `in()`, `between` ,`>` ,`<`, `>=` 等操作中。使用一个索引来检索给定范围的行。
 
 ```sql
 EXPLAIN SELECT * FROM t1 WHERE key1 IN ('a', 'b', 'c');
