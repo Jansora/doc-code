@@ -3,6 +3,9 @@ import { DocsThemeConfig } from 'nextra-theme-docs'
 // import dayjs from 'm'
 const config: DocsThemeConfig = {
   logo: <span>Jansora's Document</span>,
+  // navbar: {
+  //   component:
+  // }
   footer: {
     text: 'Jansora\'s Document',
   },
