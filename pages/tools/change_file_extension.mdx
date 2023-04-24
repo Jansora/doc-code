@@ -20,10 +20,11 @@ if __name__ == "__main__":
         sys.exit(1)
 
     directory = sys.argv[1]
-    old_extension = ".md"
-    new_extension = ".mdx"
+    old_extension = sys.argv[2]
+    new_extension = sys.argv[3]
 
     change_file_extension(directory, old_extension, new_extension)
+
 
 ```
 
