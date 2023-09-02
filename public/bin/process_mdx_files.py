@@ -1,35 +1,49 @@
 import os
-import sys
 import json
-import re
 
-def find_first_h1(file_content):
-    h1_pattern = re.compile(r"^#\s+(.+)$", re.MULTILINE)
-    match = h1_pattern.search(file_content)
-    return match.group(1) if match else ""
+def extract_h1_from_file(filepath):
+    """从文件中提取第一个以#开头的行作为h1标题"""
+    with open(filepath, 'r', encoding='utf-8') as f:
+        for line in f:
+            line = line.strip()
+            if line.startswith('#'):
+                return line[1:].strip()
+    return None
 
-def process_mdx_files(directory):
-    for root, _, files in os.walk(directory):
+def generate_meta_json(directory):
+    """生成或更新_meta.json文件"""
+    meta_filepath = os.path.join(directory, "_meta.json")
+
+    # 如果_meta.json存在，先读取其内容
+    if os.path.exists(meta_filepath):
+        with open(meta_filepath, 'r', encoding='utf-8') as f:
+            meta_data = json.load(f)
+    else:
         meta_data = {}
-        for file_name in files:
-            file_base, file_ext = os.path.splitext(file_name)
-            if file_ext.lower() == ".mdx":
-                file_path = os.path.join(root, file_name)
-                with open(file_path, "r", encoding="utf-8") as file:
-                    file_content = file.read()
 
-                first_h1 = find_first_h1(file_content)
-                meta_data[file_base] = first_h1
+    # 获取目录中的.md和.mdx文件列表
+    md_files = {os.path.splitext(filename)[0] for filename in os.listdir(directory) if filename.endswith(('.md', '.mdx'))}
 
-        if meta_data:
-            meta_json_path = os.path.join(root, "_meta.json")
-            with open(meta_json_path, "w", encoding="utf-8") as meta_json_file:
-                json.dump(meta_data, meta_json_file, ensure_ascii=False, indent=4)
+    # 遍历_meta.json中的key，检查对应的.md或.mdx文件是否仍然存在
+    keys_to_remove = [key for key in meta_data if key not in md_files]
+    for key in keys_to_remove:
+        del meta_data[key]
+
+    # 遍历目录中的.md和.mdx文件
+    for filename in md_files:
+        filepath = os.path.join(directory, filename + '.md') if filename + '.md' in os.listdir(directory) else os.path.join(directory, filename + '.mdx')
+        h1_title = extract_h1_from_file(filepath)
+        meta_data[filename] = h1_title if h1_title else filename
+
+    # 写入_meta.json文件
+    with open(meta_filepath, 'w', encoding='utf-8') as f:
+        json.dump(meta_data, f, ensure_ascii=False, indent=4)
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python script_name.py <directory>")
-        sys.exit(1)
+    import argparse
 
-    directory = sys.argv[1]
-    process_mdx_files(directory)
+    parser = argparse.ArgumentParser(description='Generate or update _meta.json for .md and .mdx files in the specified directory.')
+    parser.add_argument('directory', help='The directory to process')
+    args = parser.parse_args()
+
+    generate_meta_json(args.directory)
